@@ -1,0 +1,44 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="myCanvas" width="400" height="600"></canvas>
+	<script type="text/javascript">
+		window.onload = main;
+		var context;
+		var cW = 400,cH = 600;
+		//-------------游戏主程序入口
+		function main(){
+			var canvas = document.getElementById('myCanvas');
+			context = canvas.getContext('2d');
+			//开始执行主循环
+			setInterval(game,1000/60);
+		}
+		//-------------游戏循环逻辑
+		var count = 0;
+		function game(){
+			count++;
+			console.log(count);
+			//游戏清屏
+			clearScreen();
+			//游戏循环体
+			drawText();
+			// setInterval(drawText,1000/60);
+
+		}
+		function drawText(){
+			context.fillText("count:"+count,10,30,30);//最后一个代表宽度
+			context.fillStyle="blue";
+			context.font="italic 30px 华文彩云";//斜体要写在大小前面
+			//描边
+			context.strokeText("count:"+count,10,50);
+			context.strokeStyle="cyan";
+		}
+
+		function clearScreen () {
+			context.clearRect(0,0,cW,cH);
+		}
+	</script>
+</body>
+</html>

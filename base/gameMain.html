@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<body>
+		<canvas id="myCanvas" width="400" height="600">
+
+		</canvas>
+		<script type="text/javascript">
+			var cW = 400;
+			var cH = 600;
+			var canvas = document.getElementById('myCanvas');
+			var context = canvas.getContext('2d');
+			var img = new Image();
+			img.src = "1.jpg";
+			var count = 0;
+			img.onload=function(){
+				clearScreen();
+				setInterval(drawImage,1000/60);
+			}
+			function clearScreen(){
+				context.clearRect(0,0,cW,cH);
+			}
+			function drawImage(){
+				count+=2;
+				 context.drawImage(img,count,0);
+			}
+		</script>
+	</body>
+</html>

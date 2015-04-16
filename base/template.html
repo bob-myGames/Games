@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="myCanvas" width="400" height="600"></canvas>
+	<script type="text/javascript">
+		window.onload = main;
+		var context;
+		var cW = 400,cH = 600;
+		//-------------游戏主程序入口
+		function main(){
+			var canvas = document.getElementById('myCanvas');
+			context = canvas.getContext('2d');
+			//开始执行主循环
+			setInterval(game,1000/60);
+		}
+		//-------------游戏循环逻辑
+		var count = 0;
+		function game(){
+			count++;
+			//游戏清屏
+			clearScreen();
+			//游戏循环体
+			//...
+
+		}
+		function clearScreen () {
+			context.clearRect(0,0,cW,cH);
+		}
+	</script>
+</body>
+</html>

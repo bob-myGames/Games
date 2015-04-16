@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="myCanvas" width="400" height="600"></canvas>
+	<script type="text/javascript">
+		window.onload = main;
+		var context;
+		var cW = 400,cH = 600;
+		//-------------游戏主程序入口
+		function main(){
+			var canvas = document.getElementById('myCanvas');
+			context = canvas.getContext('2d');
+			//开始执行主循环
+			setInterval(game,1000/60);
+		}
+		//-------------游戏循环逻辑
+		var count = 0;
+		function game(){
+			count++;
+			console.log(count);
+			//游戏清屏
+			clearScreen();
+			//游戏循环体
+			drawPicture();
+
+		}
+		var count_arc=0;
+		function drawPicture(){
+			count_arc++;
+			//方形
+			// context.rect(10,10,100,100);
+			// context.fill();
+			//方形描边
+			// context.rect(10,10,100,100);
+			// context.strokeStyle='blue';
+			// context.stroke();
+			//圆形
+			// var end_arc = Math.PI*2;
+			context.arc(110,110,100,0,count_arc/50);
+			context.fillStyle='cyan';
+			context.fill();
+		}
+		function clearScreen () {
+			context.clearRect(0,0,cW,cH);
+		}
+	</script>
+</body>
+</html>
